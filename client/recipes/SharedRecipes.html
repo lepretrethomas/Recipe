@@ -1,0 +1,8 @@
+<template name="SharedRecipes">
+	<h1 class="page-title">Shared Recipes</h1>
+	{{#each recipes}}
+		{{> MenuItem}}
+	{{else}}
+		<h3>This list is empty.</h3>
+	{{/each}}
+</template>

@@ -1,6 +1,11 @@
 <template name="Recipe">
 	<article class="recipe {{#if inMenu}}in-menu{{/if}}">
-		<h3>{{name}}</h3>
+		<h3>{{name}}
+		{{#if public}}
+		<i class="fa fa-eye"></i>
+		{{else}}
+		<i class="fa fa-eye-slash"></i>
+		{{/if}}</h3>
 		{{#if editMode }}
 			{{> quickForm collection="Recipes" id=updateRecipeId type="update" doc=this autosave=true}}
 		{{else}}
@@ -17,6 +22,7 @@
 			<button class="btn-primary toggle-menu">Add to Menu</button>
 			{{/if}}
 		{{/if}}
+		<i class="fa fa-share"></i>
 		<i class="fa fa-pencil"></i>
 		<i class="fa fa-trash"></i>
 	</article>

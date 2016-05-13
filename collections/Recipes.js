@@ -30,6 +30,14 @@ RecipeSchema = new SimpleSchema({
 	ingredients: {
 		type: [Ingredient]
 	},
+	public: {
+		type: Boolean,
+		defaultValue: false,
+		optional: true,
+		autoform: {
+			type: "hidden"
+		}
+	},
 	inMenu: {
 		type: Boolean,
 		defaultValue: false,
@@ -65,6 +73,13 @@ Meteor.methods({
 		Recipes.update(id, {
 			$set: {
 				inMenu: !currentState
+			}
+		});
+	},
+	togglePublicItem: function(id, currentState) {
+		Recipes.update(id, {
+			$set: {
+				public: !currentState
 			}
 		});
 	},
