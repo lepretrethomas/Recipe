@@ -1,0 +1,14 @@
+<template name="Search">
+    {{> EasySearch.Input index=recipesIndex }}
+    {{#EasySearch.Each index=recipesIndex }}
+	{{> SearchItem}}
+    {{/EasySearch.Each}}
+</template>
+
+<template name="SearchItem">
+	<div class="menu-item">
+		<h3>{{name}}</h3>
+		<p>{{desc}}</p>	
+	<a href="/recipe/{{_id}}" class="detail-recipe"><button class="btn-info">Detail Page</button></a>
+	</div>
+</template>

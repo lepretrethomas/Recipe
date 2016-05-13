@@ -88,4 +88,11 @@ Meteor.methods({
 	}
 });
 
-Recipes.attachSchema( RecipeSchema )
+Recipes.attachSchema( RecipeSchema );
+
+
+RecipesIndex = new EasySearch.Index({
+    collection: Recipes,
+    fields: ['name'],
+    engine: new EasySearch.MongoDB()
+  });
